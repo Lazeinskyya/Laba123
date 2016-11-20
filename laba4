@@ -1,0 +1,50 @@
+program project1;
+
+{$mode objfpc}{$H+}
+
+uses
+  {$IFDEF UNIX}{$IFDEF UseCThreads}
+  cthreads,
+  {$ENDIF}{$ENDIF}
+  Classes
+  { you can add units after this };
+type
+  victor=array[word]of real;
+  var
+   A:victor;
+   n:integer;
+   k:real;
+   Procedure Create(var arr:victor); 
+   var i:integer;
+   begin
+    for i:=0 to n-1 do
+    begin
+      write('Vvedite element: ');
+      readln(arr[i]);
+      end;
+     end;
+procedure Sort(var arr:victor);
+var max,most,j:integer; 
+buff:real;
+begin
+ for max:=0 to n-2 do  
+ begin
+   most:=max; 
+   for j:=max+1 to n-1 do  
+   if arr[j]>arr[most] then   
+     most:=j;
+   buff:=arr[max]; 
+   arr[max]:=arr[most];
+   arr[most]:=buff;
+ end;
+
+end;
+procedure Vivod(arr:victor);
+var i:integer;
+begin
+ for i:=0 to n-1 do
+ write (arr[i]:-6:2,' '); 
+ writeln
+ end;
+end.                              
+                      
